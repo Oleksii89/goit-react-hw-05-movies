@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Form } from 'react-router-dom';
 
 const Searchbar = ({ onSubmit }) => {
   const [searchMovie, setSearchMovie] = useState('');
