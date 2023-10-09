@@ -1,9 +1,14 @@
+import Searchbar from 'components/Searchbar/Searchbar';
 import MovieDetails from './MovieDetails';
 
 export const Movies = () => {
   return (
-    <div>
-      <MovieDetails></MovieDetails>
-    </div>
+    <>
+      <main>
+        <Searchbar></Searchbar>
+
+        <MovieDetails></MovieDetails>
+      </main>
+    </>
   );
 };
