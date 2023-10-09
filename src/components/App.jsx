@@ -1,8 +1,8 @@
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
-import { Home } from 'pages/Home';
-import MovieDetails from 'pages/MovieDetails';
-import { Movies } from 'pages/Movies';
+import { Home } from 'pages/Home/Home';
+import MovieDetails from 'pages/MovieDetails/MovieDetails';
+import { Movies } from 'pages/Movies/Movies';
 import { Route, Routes } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout';
 
