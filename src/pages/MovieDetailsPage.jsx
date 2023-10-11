@@ -9,7 +9,7 @@ import ReviewsPage from './ReviewsPage';
 
 export const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movieDetails, setMovieDetails] = useState('');
+  const [movieDetails, setMovieDetails] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
