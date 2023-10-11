@@ -19,6 +19,6 @@ https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&incl
 export const getMovieById = async movieId => {
   const { data } = await axios.get(`
 https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`);
-  console.log(data.results);
+  console.log(data);
   return data;
 };
