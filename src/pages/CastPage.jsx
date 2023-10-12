@@ -1,4 +1,5 @@
 import { Loader } from 'components/Loader/Loader';
+import { BASE_POSTER_URL, DEFAULTIMG } from 'helper/helper';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
@@ -37,6 +38,15 @@ const CastPage = () => {
         <ul>
           {movieCasts.map(movieCast => (
             <li key={movieCast.id}>
+              <img
+                src={`${
+                  movieCast.profile_path
+                    ? BASE_POSTER_URL + movieCast.profile_path
+                    : DEFAULTIMG
+                }`}
+                alt="poster"
+                width={150}
+              />
               <p>{movieCast.name}</p>
               <p>Character {movieCast.character}</p>
             </li>
