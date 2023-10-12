@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { getTrendinghMovies } from 'services/api';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
 
@@ -28,3 +28,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;

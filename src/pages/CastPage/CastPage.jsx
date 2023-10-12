@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastMovie } from 'services/api';
+import { StyledCastList, StyledListItem } from './CastPage.styled';
 
 const CastPage = () => {
   const { movieId } = useParams();
@@ -35,9 +36,9 @@ const CastPage = () => {
       {isLoading && <Loader />}
       {error && <p>error.message</p>}
       {movieCasts !== null && (
-        <ul>
+        <StyledCastList>
           {movieCasts.map(movieCast => (
-            <li key={movieCast.id}>
+            <StyledListItem key={movieCast.id}>
               <img
                 src={`${
                   movieCast.profile_path
@@ -45,13 +46,12 @@ const CastPage = () => {
                     : DEFAULTIMG
                 }`}
                 alt="poster"
-                width={150}
               />
-              <p>{movieCast.name}</p>
-              <p>Character {movieCast.character}</p>
-            </li>
+              <b>{movieCast.name}</b>
+              <p>Character: {movieCast.character}</p>
+            </StyledListItem>
           ))}
-        </ul>
+        </StyledCastList>
       )}
     </div>
   );
