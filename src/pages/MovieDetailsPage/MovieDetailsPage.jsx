@@ -1,11 +1,10 @@
 import { Loader } from 'components/Loader/Loader';
 import { BASE_POSTER_URL, DEFAULTIMG } from 'helper/helper';
-import React, { useState } from 'react';
+import React, { Suspense, lazy, useState } from 'react';
 import { useEffect } from 'react';
 import { Link, Route, Routes, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/api';
-import CastPage from '../CastPage/CastPage';
-import ReviewsPage from '../ReviewsPage/ReviewsPage';
+
 import {
   StyledListGenre,
   StyledMovieGenre,
@@ -15,6 +14,9 @@ import {
   StyledMovieTitle,
   StyledMovieWrapper,
 } from './MovieDetailsPage.styled';
+
+const CastPage = lazy(() => import('../CastPage/CastPage'));
+const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -82,10 +84,12 @@ const MovieDetailsPage = () => {
                 <Link to="reviews">Reviews</Link>
               </li>
             </ul>
-            <Routes>
-              <Route path="cast" element={<CastPage />} />
-              <Route path="reviews" element={<ReviewsPage />} />
-            </Routes>
+            <Suspense fallback={Loader}>
+              <Routes>
+                <Route path="cast" element={<CastPage />} />
+                <Route path="reviews" element={<ReviewsPage />} />
+              </Routes>
+            </Suspense>
           </div>
         </div>
       )}
