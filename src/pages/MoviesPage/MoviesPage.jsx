@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 
 const MoviesPage = () => {
   return (
-    <Suspense fallback={Loader}>
+    <Suspense fallback={<Loader />}>
       <main>
         <Searchbar></Searchbar>
       </main>
