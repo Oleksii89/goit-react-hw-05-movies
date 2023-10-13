@@ -1,8 +1,8 @@
 import { Loader } from 'components/Loader/Loader';
 import { BASE_POSTER_URL, DEFAULTIMG } from 'helper/helper';
-import React, { Suspense, lazy, useState } from 'react';
+import React, { Suspense, lazy, useRef, useState } from 'react';
 import { useEffect } from 'react';
-import { Link, Route, Routes, useParams } from 'react-router-dom';
+import { Link, Route, Routes, useLocation, useParams } from 'react-router-dom';
 import { getMovieById } from 'services/api';
 
 import {
@@ -20,6 +20,10 @@ const ReviewsPage = lazy(() => import('../ReviewsPage/ReviewsPage'));
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
+
+  const location = useLocation();
+  const backLinkHRef = useRef(location.state?.from) ?? '/';
+
   const [movieDetails, setMovieDetails] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,6 +53,8 @@ const MovieDetailsPage = () => {
       {error && <p>error.message</p>}
       {movieDetails !== null && (
         <div>
+          <Link to={backLinkHRef.current}>Go back</Link>
+
           <StyledMovieWrapper>
             <StyledMovieImg
               src={`${

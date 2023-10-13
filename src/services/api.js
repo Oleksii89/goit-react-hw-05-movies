@@ -8,7 +8,7 @@ https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`);
   return data.results;
 };
 
-export const getMovieByQuerry = async query => {
+export const getMovieByQuery = async query => {
   const { data } = await axios.get(`
 https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&include_adult=false&page=1&language=en-US`);
 
