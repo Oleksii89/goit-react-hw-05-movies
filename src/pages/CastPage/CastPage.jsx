@@ -37,18 +37,16 @@ const CastPage = () => {
       {error && <p>error.message</p>}
       {movieCasts !== null && (
         <StyledCastList>
-          {movieCasts.map(movieCast => (
-            <StyledListItem key={movieCast.id}>
+          {movieCasts.map(({ id, profile_path, name, character }) => (
+            <StyledListItem key={id}>
               <img
                 src={`${
-                  movieCast.profile_path
-                    ? BASE_POSTER_URL + movieCast.profile_path
-                    : DEFAULTIMG
+                  profile_path ? BASE_POSTER_URL + profile_path : DEFAULTIMG
                 }`}
                 alt="poster"
               />
-              <b>{movieCast.name}</b>
-              <p>Character: {movieCast.character}</p>
+              <b>{name}</b>
+              <p>Character: {character}</p>
             </StyledListItem>
           ))}
         </StyledCastList>

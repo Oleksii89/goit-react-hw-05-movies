@@ -38,10 +38,10 @@ const ReviewsPage = () => {
         <p>We don't have any reviews for this movie.</p>
       ) : (
         <ul>
-          {movieReviews.map(movieReview => (
-            <li key={movieReview.id}>
-              <h3>Author: {movieReview.author}</h3>
-              <p>{movieReview.content}</p>
+          {movieReviews.map(({ id, author, content }) => (
+            <li key={id}>
+              <h3>Author: {author}</h3>
+              <p>{content}</p>
             </li>
           ))}
         </ul>

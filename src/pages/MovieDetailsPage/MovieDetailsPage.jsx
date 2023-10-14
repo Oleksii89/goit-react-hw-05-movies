@@ -73,8 +73,8 @@ const MovieDetailsPage = () => {
               </StyledMovieOverviewDescription>
               <StyledMovieGenre>Genres</StyledMovieGenre>
               <StyledListGenre>
-                {movieDetails.genres?.map(genre => (
-                  <li key={genre.id}>{genre.name}</li>
+                {movieDetails.genres?.map(({ id, name }) => (
+                  <li key={id}>{name}</li>
                 ))}
               </StyledListGenre>
             </div>
